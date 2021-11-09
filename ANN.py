@@ -16,9 +16,9 @@ tf.random.set_seed(2021)
 random.seed(2021)
 
 #import data
-train_data = pd.read_csv('/content/ann/train_data_2021.csv')
-test_data = pd.read_csv('/content/ann/test_data_2021.csv')
-validation_data = pd.read_csv('/content/ann/val_data_2021.csv')
+train_data = pd.read_csv('/content/ann/ann_train.csv')
+test_data = pd.read_csv('/content/ann/ann_test.csv')
+validation_data = pd.read_csv('/content/ann/ann_val.csv')
 
 # Separating features and Class labels
 y_train = train_data['Class']
