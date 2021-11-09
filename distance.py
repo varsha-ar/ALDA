@@ -1,3 +1,31 @@
+# a. Parse the .data file into a more accessible representation e.g. a Pandas DataFrame.
+#Then, generate a plot between the displacement and the weight of the observations.
+#Label the axes (displacement should be x-axis and weight should be y-axis). Call
+#this plot "Displacement and Weight Data". What general interpretation can youm ake from this plot?
+
+#Import Pandas
+import pandas as pd
+
+data = pd.read_csv('../HW1/content/distance_data.data',delimiter=r'\s+',header=None)
+data.head()
+
+data = data.rename(mapper={0:'mpg',1:'cylinders',2:'displacement',3:'horsepower',4:'weight',5:'acceleration',6:'model year',7:'origin',8:'car name'},axis =1)
+data.head()
+
+import matplotlib.pyplot as plt
+plt.figure(figsize=(25,5))
+data.plot(kind='scatter', x='displacement', y='weight', color='orange')  
+plt.title("Displacement vs Weight data")
+
+#interpretations:
+# As displacement increases weight is also increasing..More the displacement the car is able to cover the heavier it gets according to this data
+
+# b. Compute the mean of the attributes displacement and weight. Define a data point called P such that P = (mean(displacement); mean(weight)).
+disp_mean = data.displacement.mean()
+w_mean = data.weight.mean()
+p = [disp_mean,w_mean]  #this is the datapoint P - which is defined using a list
+print(p)
+
 # The distance between P and the 398 data points using the following distance measures: 
 #1) Euclidean distance, 2) Manhattan block metric, 3)Minkowski metric (for power=7), 4) Chebyshev distance, and 5) Cosine distance.
 #List the closest 6 points for each distance.
